@@ -15,6 +15,7 @@ import { LedgerDeviceIcon } from "./icons/LedgerDeviceIcon";
 import { translate } from "@near-wallet-selector/core";
 import { UpArrowIcon } from "./icons/UpArrowIcon";
 import { DownArrowIcon } from "./icons/DownArrowIcon";
+import { signInWithcontractId } from "../../index";
 
 interface DerivationPathProps {
   selector: WalletSelector;
@@ -198,7 +199,7 @@ export const DerivationPath: React.FC<DerivationPathProps> = ({
 
     return hardwareWallet!
       .signIn({
-        contractId: options.contractId,
+        contractId: signInWithcontractId(options, "ledger"),
         methodNames: options.methodNames,
         accounts: mapAccounts,
       })

@@ -23,6 +23,7 @@ import { WalletHome } from "./WalletHome";
 import { WalletConnected } from "./WalletConnected";
 import { ScanQRCode } from "./ScanQRCode";
 import { translate, allowOnlyLanguage } from "@near-wallet-selector/core";
+import { signInWithcontractId } from "../../index";
 
 interface ModalProps {
   selector: WalletSelector;
@@ -204,7 +205,7 @@ export const Modal: React.FC<ModalProps> = ({
         });
 
         await wallet.signIn({
-          contractId: options.contractId,
+          contractId: signInWithcontractId(options, wallet.id),
           methodNames: options.methodNames,
           qrCodeModal,
         });
@@ -216,7 +217,7 @@ export const Modal: React.FC<ModalProps> = ({
 
       if (wallet.type === "browser") {
         await wallet.signIn({
-          contractId: options.contractId,
+          contractId: signInWithcontractId(options, wallet.id),
           methodNames: options.methodNames,
           successUrl: wallet.metadata.successUrl,
           failureUrl: wallet.metadata.failureUrl,
@@ -228,7 +229,7 @@ export const Modal: React.FC<ModalProps> = ({
       }
 
       await wallet.signIn({
-        contractId: options.contractId,
+        contractId: signInWithcontractId(options, wallet.id),
         methodNames: options.methodNames,
       });
 

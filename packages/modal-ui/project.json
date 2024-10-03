@@ -1,5 +1,5 @@
 {
-  "name": "modal-ui",
+  "name": "ref-modal-ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/modal-ui/src",
   "projectType": "library",

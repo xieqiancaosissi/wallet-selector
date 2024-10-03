@@ -7,6 +7,7 @@ import type { WalletSelectorModal, ModalOptions } from "./modal.types";
 import { Modal } from "./components/Modal";
 import { EventEmitter } from "@near-wallet-selector/core";
 import type { ModalEvents } from "./modal.types";
+import { signInWithcontractId } from "../index";
 
 const MODAL_ELEMENT_ID = "near-wallet-selector-modal";
 
@@ -46,7 +47,7 @@ export const setupModal = (
       }
 
       await wallet.signIn({
-        contractId: options.contractId,
+        contractId: signInWithcontractId(options, module.id),
         methodNames: options.methodNames,
       });
     }

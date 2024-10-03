@@ -7,6 +7,7 @@ export interface ModalOptions {
   methodNames?: Array<string>;
   theme?: Theme;
   description?: string;
+  blockFunctionKeyWallets?: Array<string>;
 }
 
 export type ModalHideReason = "user-triggered" | "wallet-navigation";
